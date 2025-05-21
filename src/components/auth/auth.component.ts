@@ -14,11 +14,19 @@ export class AuthComponent {
   ){}
 
 
+  
 
   async login(){
     await this.blockChainService.loadBlockChain();
     if (this.blockChainService.signer){
-      this.router.navigate(['/issue']);
+      const address = await this.blockChainService.getMyAddress();
+      const isAdmin = await this.blockChainService.isAdminExists(address);
+      const isStudent = await this.blockChainService.isStudentExists(address);
+      if(isAdmin){
+        this.router.navigate(['/issue-cert']);
+      }else if(isStudent){
+        this.router.navigate(['/student']);
+      }
     }
   }
 }

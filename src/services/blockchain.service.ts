@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {ethers} from 'ethers';
 import * as CryptoJS from 'crypto-js';
 
-const contractAddress = '0x4d545A33273c2fe2a53Ea4ef850Da176a406D2d0';
+const contractAddress = '0x8c3cd80b71cdc669418055b96C3b5095299764A7';
 const abi =  [
     {
       "inputs": [],
@@ -118,6 +118,20 @@ const abi =  [
       "constant": true
     },
     {
+      "inputs": [],
+      "name": "getMyAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
       "inputs": [
         {
           "internalType": "string",
@@ -188,6 +202,26 @@ const abi =  [
       "constant": true
     },
     {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_studentAddress",
+          "type": "address"
+        }
+      ],
+      "name": "isStudent",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
       "inputs": [],
       "name": "getAdminNames",
       "outputs": [
@@ -215,6 +249,26 @@ const abi =  [
           "internalType": "address",
           "name": "",
           "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_adminAddress",
+          "type": "address"
+        }
+      ],
+      "name": "isAdmin",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
         }
       ],
       "stateMutability": "view",
@@ -451,6 +505,22 @@ export class BlockchainService {
     return  CryptoJS.SHA256(serial).toString();  
   }
 
+async getMyAddress() {
+  if (!this.contract) return;
+  return await (this.contract as any).getMyAddress();
+}
+
+
+  async isStudentExists(studentAddress: string){
+    if (!this.contract) return;
+    return await (this.contract as any).isStudent(studentAddress);
+  }
+
+async isAdminExists(adminAddress: string) {
+  if (!this.contract) return;
+  return await (this.contract as any).isAdmin(adminAddress);
+}
+
 
   async issueCertificate(name: string, event: string, date: string, studentAddress: string){
     if (!this.contract) return;
@@ -483,6 +553,11 @@ export class BlockchainService {
     return await (this.contract as any).getCertificatesByOwner(owner);
   }
 
+  async addStudent(name: string, address: string){
+    if (!this.contract) return;
+    const tx = await (this.contract as any).addStudent(name, address);
+    await tx.wait();
+  }
 
   async getStudentNames(){
     if (!this.contract) return;
@@ -493,6 +568,16 @@ export class BlockchainService {
     if (!this.contract) return;
     return await (this.contract as any).getStudentAddressByName(studentName);
   }
+
+
+
+
+async addAdmin(adminName: string, adminAddress: string) {
+  if (!this.contract) return;
+  const tx = await (this.contract as any).addAdmin(adminName, adminAddress);
+  await tx.wait();
+}
+
 
   async getAdminNames() {
     if (!this.contract) return;

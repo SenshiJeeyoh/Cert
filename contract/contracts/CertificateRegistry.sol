@@ -46,6 +46,10 @@ contract CertificateRegistry {
         adminAddresses.push(msg.sender);
     }
 
+    function getMyAddress() public view returns (address) {
+        return msg.sender;
+    }
+
     function addStudent(string memory _studentName, address _studentAddress) public onlyAdmin {
         require(students[_studentAddress].studentAddress == address(0), "Student already exists");
         students[_studentAddress] = Students(_studentName, _studentAddress);
@@ -76,6 +80,10 @@ contract CertificateRegistry {
         return address(0);
     }
 
+    function isStudent(address _studentAddress) public view returns (bool) {
+        return students[_studentAddress].studentAddress != address(0);
+    }
+
 
 
     function getAdminNames() public view returns (string[] memory) {
@@ -94,6 +102,10 @@ contract CertificateRegistry {
             }
         }
         return address(0);
+    }
+
+    function isAdmin(address _adminAddress) public view returns (bool) {
+        return admins[_adminAddress].adminAddress != address(0);
     }
 
     
