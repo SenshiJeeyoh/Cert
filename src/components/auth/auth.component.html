@@ -1,5 +1,20 @@
 
-    <button (click)="login()">Login with Metamask</button>
+    @if(toggle == 1){
+        <button (click)="login()">Login with Metamask</button>
+    }
+    
+    @if(toggle == 2){
+        <h1>New Student</h1>
+        <input type="text" placeholder="Full name" [(ngModel)]="name">
+        <input type="text" placeholder="Email" [(ngModel)]="email">
+        <button (click)="registerStudent()">Register</button>
+        <p>{{msg}}</p>
+        @if(isOtp){
+            <input type="text" placeholder="OTP" [(ngModel)]="otp">
+            <button (click)="verifyOtp()">Verify</button>
+            <p>{{otpmsg}}</p>
+        }
+    }
 
 
 

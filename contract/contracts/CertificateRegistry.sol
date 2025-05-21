@@ -50,7 +50,7 @@ contract CertificateRegistry {
         return msg.sender;
     }
 
-    function addStudent(string memory _studentName, address _studentAddress) public onlyAdmin {
+    function addStudent(string memory _studentName, address _studentAddress) public {
         require(students[_studentAddress].studentAddress == address(0), "Student already exists");
         students[_studentAddress] = Students(_studentName, _studentAddress);
         studentAddresses.push(_studentAddress);
