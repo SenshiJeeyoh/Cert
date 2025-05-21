@@ -86,15 +86,15 @@ export class AuthComponent {
     }
   }
 
-      @HostListener('document:mousemove', ['$event'])
+  @HostListener('document:mousemove', ['$event'])
   onMouseMove(event: MouseEvent) {
     const fox = document.getElementById('foxLogo');
     if (fox) {
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
+      const centerX = window.innerWidth / 5;
+      const centerY = window.innerHeight / 5;
 
-      const rotateX = (event.clientY - centerY) / 40;
-      const rotateY = (event.clientX - centerX) / 40;
+      const rotateX = (event.clientY - centerY) / 60;
+      const rotateY = (event.clientX - centerX) / 60;
 
       fox.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     }

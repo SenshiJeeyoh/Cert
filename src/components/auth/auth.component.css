@@ -16,17 +16,19 @@ body, html {
 
 .logo-container{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  left: 225px;
   align-items: center;
   height: 60vh;
 }
 
-/* #foxLogo{
-  width: auto;
+#foxLogo{
+  width: 150px;
   height: auto;
   transition: transform 0.1s ease-out;
   will-change: transform;
-} */
+} 
 
 .center-box, .form-box {
   background: linear-gradient(145deg, #2c2c2c, #1a1a1a);
