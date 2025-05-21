@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { BlockchainService } from '../../services/blockchain.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -85,4 +85,19 @@ export class AuthComponent {
       this.otpmsg = 'Invalid OTP. Please try again.';
     }
   }
+
+      @HostListener('document:mousemove', ['$event'])
+  onMouseMove(event: MouseEvent) {
+    const fox = document.getElementById('foxLogo');
+    if (fox) {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+
+      const rotateX = (event.clientY - centerY) / 40;
+      const rotateY = (event.clientX - centerX) / 40;
+
+      fox.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    }
+  }
+
 }

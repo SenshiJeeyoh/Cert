@@ -1,20 +1,29 @@
+<div class="auth-container">
 
-    @if(toggle == 1){
-        <button (click)="login()">Login with Metamask</button>
-    }
-    
-    @if(toggle == 2){
-        <h1>New Student</h1>
-        <input type="text" placeholder="Full name" [(ngModel)]="name">
-        <input type="text" placeholder="Email" [(ngModel)]="email">
-        <button (click)="registerStudent()">Register</button>
-        <p>{{msg}}</p>
-        @if(isOtp){
-            <input type="text" placeholder="OTP" [(ngModel)]="otp">
-            <button (click)="verifyOtp()">Verify</button>
-            <p>{{otpmsg}}</p>
-        }
-    }
+  <!-- <div class="logo-container">
+    <img src="/public/img/MetaMask-icon-fox.svg" alt="MetaMaskFox">
+  </div> -->
+  <!-- Login with MetaMask -->
+  <ng-container *ngIf="toggle === 1">
+    <div class="center-box">
+      <button class="metamask-btn" (click)="login()">Login with MetaMask</button>
+    </div>
+  </ng-container>
 
+  <!-- Student Registration -->
+  <ng-container *ngIf="toggle === 2">
+    <div class="form-box">
+      <h1>New Student</h1>
+      <input type="text" placeholder="Full name" [(ngModel)]="name" />
+      <input type="text" placeholder="Email" [(ngModel)]="email" />
+      <button (click)="registerStudent()">Register</button>
+      <p class="msg">{{ msg }}</p>
 
-
+      <ng-container *ngIf="isOtp">
+        <input type="text" placeholder="OTP" [(ngModel)]="otp" />
+        <button (click)="verifyOtp()">Verify</button>
+        <p class="msg">{{ otpmsg }}</p>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

@@ -1,60 +1,149 @@
-.certificate-container{
+.certificate-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 40px 0;
 }
 
-#pdf-content{
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1440px;
-    background-size: cover; /* Makes the image cover the whole div */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat;
-}
-.title{
-    display: flex;
-    position: absolute;
-    top: 23.125rem;
-    left: 1500;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-        h2 {
-            font-size: 70px;
-            margin: 10px;
-            
-        }
-        h3{
-            font-size: 30px;
-        }
+#pdf-content {
+    position: relative;
+    width: 1000px;
+    height: 700px;
+    background: linear-gradient(to bottom right, #1a1a1a, #2c2c2c);
+    border: 2px solid #f0a500;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 0 30px rgba(240, 165, 0, 0.2);
+    color: #f5f5f5;
+    font-family: 'Georgia', serif;
+    overflow: hidden;
 }
 
-.lineheight{
-    line-height: 0.9;
+.title {
     text-align: center;
+    margin-bottom: 40px;
 }
 
-.flex-row{
-    
-    width: 100%;
+.title h2 {
+    font-size: 48px;
+    color: #f0a500;
+    margin: 0;
+    letter-spacing: 4px;
+}
+
+.title h3 {
+    font-size: 24px;
+    color: #cccccc;
+    margin-top: 5px;
+}
+
+.lineheight {
+    text-align: center;
+    line-height: 1.4;
+    margin: 30px 0;
+}
+
+.lineheight p {
+    font-size: 18px;
+    color: #cccccc;
+    margin: 10px 0 4px;
+}
+
+.lineheight h1 {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.flex-row {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    gap: 10%;
+    gap: 20px;
+    margin-top: 40px;
+    font-size: 16px;
+    color: #cccccc;
 }
 
-.serial{
-    /* display: flex;
-    flex-direction: row;
-    
-    p{
-        position: relative;
-        top: 320px;
-        right: 600px;
-    }
-     */
+.flex-row h1 {
+    font-size: 20px;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+.serial {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    text-align: right;
+    font-size: 12px;
+    color: #888888;
+}
+
+.serial p:first-child {
+    font-weight: bold;
+    color: #aaaaaa;
+}
+
+img.pdf {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1000px;
+    height: 700px;
+    z-index: -1;
+    opacity: 0.1; /* faded background if needed */
+    object-fit: cover;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #1a1a1a; /* dark metallic tone */
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    color: #f5f5f5;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f0a500; /* soft metallic gold for header */
+}
+
+.container input,
+.container select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 6px;
+    background: #2c2c2c;
+    color: #ffffff;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.container input:focus,
+.container select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #f0a500;
+}
+
+.container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #f0a500;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container button:hover {
+    background-color: #ffb833;
 }
