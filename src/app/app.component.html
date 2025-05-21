@@ -1,1 +1,15 @@
-<router-outlet></router-outlet>
+<div class="sidebar-container">
+  <div class="sidebar">
+    <h2 class="logo">CertiChain</h2>
+    <nav>
+      <ul>
+        <li><a routerLink="/issue" routerLinkActive="active">Issue Certificate</a></li>
+        <li><a routerLink="/verify" routerLinkActive="active">Verify Certificate</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

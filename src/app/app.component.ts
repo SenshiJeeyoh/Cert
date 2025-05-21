@@ -12,10 +12,4 @@ import { Block } from 'ethers';
 export class AppComponent {
   title = 'CertiChain';
 
-  
-
-
-  
-
-
 }
