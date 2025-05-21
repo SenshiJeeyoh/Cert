@@ -1,3 +1,41 @@
 <div class="container">
-  
+    <h1>Issue Certificate</h1>
+
+    <input type="text" placeholder="Recipient Name" [(ngModel)]="name">
+    <input type="text" placeholder="Event Name" [(ngModel)]="event">
+    <input type="date" placeholder="Issue Date" [(ngModel)]="date">
+    <input type="text" placeholder="Event Handler" [(ngModel)]="eventHandler">
+    <input type="text" placeholder="Student Wallet Address" [(ngModel)]="studentAddress">
+    <br>
+    <button (click)="issueCert()">Generate</button>
 </div>
+
+    <div class="certificate-container">
+            <div class="pdf" id="pdf-content">
+                <div class="title">
+                <h2>CERTIFICATE</h2> 
+                <h3>OF PARTICIPATION</h3>
+                <div class="lineheight">
+                    <p>This certificate is proudly presented to:</p>
+                    <h1>{{name}}</h1>
+                    <p>for participating in the event:</p>
+                    <h1>{{event}}</h1>
+                    <p>on:</p>
+                    <h1>{{formattedDate}}</h1>
+
+
+                </div>
+                <div class="flex-row">
+                    <h1>Issuer:</h1>
+                    <h1>{{eventHandler}}</h1>
+                </div>
+                <div class="serial">
+                    <p>Serial Code:</p>
+                    <p>{{serial}}</p>
+                </div>
+                
+            </div>
+            <img class="pdf" src="/img/certBackground.svg">
+        </div>
+    </div>
+    
