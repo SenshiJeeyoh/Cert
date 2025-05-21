@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {ethers} from 'ethers';
 import * as CryptoJS from 'crypto-js';
 
-const contractAddress = '0x51C32708b1297234CA06A19ca7840B4Cd20082F1';
-const abi = [
+const contractAddress = '0x4d545A33273c2fe2a53Ea4ef850Da176a406D2d0';
+const abi =  [
     {
       "inputs": [],
       "stateMutability": "nonpayable",
@@ -64,6 +64,187 @@ const abi = [
         }
       ],
       "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "admins",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "adminAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "students",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "studentAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_studentName",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_studentAddress",
+          "type": "address"
+        }
+      ],
+      "name": "addStudent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_adminName",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "_adminAddress",
+          "type": "address"
+        }
+      ],
+      "name": "addAdmin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getStudentNames",
+      "outputs": [
+        {
+          "internalType": "string[]",
+          "name": "",
+          "type": "string[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_studentName",
+          "type": "string"
+        }
+      ],
+      "name": "getStudentAddressByName",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "getAdminNames",
+      "outputs": [
+        {
+          "internalType": "string[]",
+          "name": "",
+          "type": "string[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_adminName",
+          "type": "string"
+        }
+      ],
+      "name": "getAdminAddressByName",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_studentName",
+          "type": "string"
+        }
+      ],
+      "name": "updateStudent",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_adminName",
+          "type": "string"
+        }
+      ],
+      "name": "updateAdmin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -131,7 +312,8 @@ const abi = [
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -190,7 +372,8 @@ const abi = [
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -236,7 +419,8 @@ const abi = [
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ];
 
@@ -271,7 +455,7 @@ export class BlockchainService {
   async issueCertificate(name: string, event: string, date: string, studentAddress: string){
     if (!this.contract) return;
     const serial = this.genSerial(name, event, date);
-    console.log(serial);
+    
     const tx = await (this.contract as any).issueCertificate(name, event, date, serial, studentAddress);
     await tx.wait();
     return serial;
@@ -298,6 +482,29 @@ export class BlockchainService {
     if (!this.contract) return;
     return await (this.contract as any).getCertificatesByOwner(owner);
   }
+
+
+  async getStudentNames(){
+    if (!this.contract) return;
+    return await (this.contract as any).getStudentNames();
+  }
+
+  async getStudentAddressByName(studentName: string) {
+    if (!this.contract) return;
+    return await (this.contract as any).getStudentAddressByName(studentName);
+  }
+
+  async getAdminNames() {
+    if (!this.contract) return;
+    return await (this.contract as any).getAdminNames();
+  }
+
+  async getAdminAddressByName(adminName: string) {
+    if (!this.contract) return;
+    return await (this.contract as any).getAdminAddressByName(adminName);
+  }
+
+
 
 
 

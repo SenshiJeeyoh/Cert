@@ -18,11 +18,13 @@ export class IssueCertComponent implements OnInit{
   serial: string | any = '';
   studentAddress: string = '';
   eventHandler : string = '';
+  students: any[] = [];
 
   constructor(private blockchainService: BlockchainService, private pdfService: PdfService) {}
 
-  ngOnInit(){
-    this.blockchainService.loadBlockChain();
+  async ngOnInit(){
+    await this.blockchainService.loadBlockChain();
+    await this.getStudentNames();
   }
   ngDoCheck(){
     this.formattedDate = this.date.split('T')[0];
@@ -41,6 +43,16 @@ export class IssueCertComponent implements OnInit{
     }catch(error){
       alert(`Error: ${error}`);
     }
+  }
+
+  async getStudentNames(){
+    this.blockchainService.loadBlockChain();
+    this.students = await this.blockchainService.getStudentNames();
+  }
+
+  async getStudentAddressByName(studentName: string){
+    this.blockchainService.loadBlockChain();
+    this.studentAddress = await this.blockchainService.getStudentAddressByName(studentName);
   }
 
 
