@@ -73,12 +73,19 @@ contract CertificateRegistry {
     
     function getStudentAddressByName(string memory _studentName) public view returns (address) {
         for (uint256 i = 0; i < studentAddresses.length; i++) {
-            if (keccak256(abi.encodePacked(students[studentAddresses[i]].name)) == keccak256(abi.encodePacked(_studentName))) {
-                return studentAddresses[i];
+            Students memory s = students[studentAddresses[i]];
+            if (keccak256(abi.encodePacked(s.name)) == keccak256(abi.encodePacked(_studentName))) {
+                return s.studentAddress; // This is the value from the struct
             }
         }
         return address(0);
     }
+
+
+
+    
+
+
 
     function isStudent(address _studentAddress) public view returns (bool) {
         return students[_studentAddress].studentAddress != address(0);

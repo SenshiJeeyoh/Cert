@@ -9,7 +9,10 @@
     <input type="text" placeholder="Event Name" [(ngModel)]="event">
     <input type="date" placeholder="Issue Date" [(ngModel)]="date">
     <input type="text" placeholder="Event Handler" [(ngModel)]="eventHandler">
-    <input type="text" placeholder="Student Wallet Address" [(ngModel)]="studentAddress">
+    <select [(ngModel)]="selectedStudent">
+        <option value="" selected>Select a student</option>
+        <option *ngFor="let student of students" [value]="student">{{student}}</option>
+    </select>
     <br>
     <button (click)="issueCert()">Generate</button>
 </div>

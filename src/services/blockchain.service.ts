@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {ethers} from 'ethers';
 import * as CryptoJS from 'crypto-js';
 
-const contractAddress = '0x9c4440beFaf7B9dAD7BEf1691B8b831866104eC8';
+const contractAddress = '0x321f46dFFA04F88E8B5d23b079c7530428c55056';
 const abi =  [
     {
       "inputs": [],
