@@ -3,11 +3,12 @@ import { routes } from '../../app/app.routes';
 import { CommonModule } from '@angular/common';
 import { BlockchainService } from '../../services/blockchain.service';
 import { FormsModule } from '@angular/forms';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 
 @Component({
   selector: 'app-verify-cert',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SidebarComponent],
   templateUrl: './verify-cert.component.html',
   styleUrl: './verify-cert.component.css'
 })

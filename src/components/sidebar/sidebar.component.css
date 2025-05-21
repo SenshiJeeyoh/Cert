@@ -1,0 +1,37 @@
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #2c2c2c, #111);
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+.logo{
+  color: #d4af37;
+  margin-bottom: 30px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+  color: #d4d4d4;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar nav ul li a:hover {
+  color: #fff;
+}

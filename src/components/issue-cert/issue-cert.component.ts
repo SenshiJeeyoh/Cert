@@ -3,10 +3,10 @@ import { BlockchainService } from '../../services/blockchain.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PdfService } from '../../services/pdf.service';
-
+import { SidebarComponent } from '../sidebar/sidebar.component';
 @Component({
   selector: 'app-issue-cert',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, SidebarComponent],
   templateUrl: './issue-cert.component.html',
   styleUrl: './issue-cert.component.css'
 })
