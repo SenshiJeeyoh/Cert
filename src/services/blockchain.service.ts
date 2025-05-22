@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {ethers} from 'ethers';
 import * as CryptoJS from 'crypto-js';
 
-const contractAddress = '0x321f46dFFA04F88E8B5d23b079c7530428c55056';
+const contractAddress = '0x47790543A7c37355D4a7a3d037Aa8d17f3b33151';
 const abi =  [
     {
       "inputs": [],
@@ -588,15 +588,6 @@ async addAdmin(adminName: string, adminAddress: string) {
     if (!this.contract) return;
     return await (this.contract as any).getAdminAddressByName(adminName);
   }
-
-
-
-
-
-
-  
-
-
 
 
 }

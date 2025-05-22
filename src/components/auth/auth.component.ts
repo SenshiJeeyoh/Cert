@@ -90,11 +90,11 @@ export class AuthComponent {
   onMouseMove(event: MouseEvent) {
     const fox = document.getElementById('foxLogo');
     if (fox) {
-      const centerX = window.innerWidth / 5;
-      const centerY = window.innerHeight / 5;
+      const centerX = window.innerWidth / 4;
+      const centerY = window.innerHeight / 4;
 
-      const rotateX = (event.clientY - centerY) / 60;
-      const rotateY = (event.clientX - centerX) / 60;
+      const rotateX = (event.clientY - centerY) / 40;
+      const rotateY = (event.clientX - centerX) / 40;
 
       fox.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     }

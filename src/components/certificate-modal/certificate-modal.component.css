@@ -1,0 +1,68 @@
+.custom-modal {
+  width: 1000px;
+  height: 400px;
+  background: #1c1c1c; /* Optional: match your theme */
+  border-radius: 12px;
+  overflow: auto;
+  padding: 20px;
+}
+.certificate-template {
+  width: 1000px;
+  height: 700px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid #ffa500; /* Gold border */
+  background: linear-gradient(to bottom, #2c2c2c, #111);
+  text-align: center;
+  font-family: 'Georgia', serif;
+  color: #f1f1f1;
+  border-radius: 12px;
+}
+
+.certificate-template h2 {
+  font-size: 40px;
+  margin-bottom: 50px;
+  color: #FFD700;
+}
+
+.certificate-template h3 {
+  font-size: 30px;
+  margin: 30px 0;
+  color: #ffa500;
+}
+
+.certificate-template h4 {
+  font-size: 30px;
+  margin: 30px 0;
+  color: #FBC02D;
+}
+
+.certificate-template p {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #e0e0e0;
+}
+
+.modal-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button.download-btn {
+  background-color: #FFD700;
+  color: #1c1c1c;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button.download-btn:hover {
+  background-color: #e6c200;
+  transform: scale(1.05);
+}
+
+
+

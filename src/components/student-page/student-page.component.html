@@ -1,0 +1,22 @@
+<div class="student-container">
+  <h1 class="page-title">🎓 Student Page</h1>
+  <p class="subtitle">Welcome! Below is a list of your earned certificates.</p>
+
+  <mat-divider class="custom-divider"></mat-divider>
+
+  <div class="list-cert">
+    <h2 class="cert-title">📄 Your Certificates</h2>
+
+    <mat-list *ngIf="certs.length > 0; else noCerts">
+      <mat-list-item class="cert-item" *ngFor="let cert of certs">
+        <mat-icon matListIcon color="accent">verified</mat-icon>
+        <span class="cert-text">{{ cert }}</span>
+        <button class="modal-button" color="primary" (click)="openCertificateModal(cert)">Preview</button>
+      </mat-list-item>
+    </mat-list>
+
+    <ng-template #noCerts>
+      <p class="no-cert-msg">You have no certificates yet.</p>
+    </ng-template>
+  </div>
+</div>
