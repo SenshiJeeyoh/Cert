@@ -38,7 +38,9 @@ export class StudentPageComponent implements OnInit {
         issuedDate: cert.issuedDate,
         certHash: cert.certHash
       },
-      width: '800px'
+      width: '1040px',         // 90% of viewport width
+      maxWidth: '100vw',     // ensures it doesn't exceed screen
+      panelClass: 'custom-dialog-container' // optional for custom styling
     });
   }
 }

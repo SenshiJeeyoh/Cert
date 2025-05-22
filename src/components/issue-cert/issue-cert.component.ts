@@ -42,7 +42,7 @@ export class IssueCertComponent implements OnInit{
           this.serial = serial;
           
           setTimeout(() => {
-            this.pdfService.generatePDF();
+            this.pdfService.generatePDF(this.serial);
           }, 1000);
         });
         alert(`Certificate Issued: Serial Code ${this.serial}`);

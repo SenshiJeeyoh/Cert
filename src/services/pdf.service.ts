@@ -10,7 +10,7 @@ export class PdfService {
 
   constructor() { }
 
-  generatePDF() {
+  generatePDF(hash: string) {
     const element = document.getElementById('pdf-content');
     if (!element) return;
 
@@ -27,7 +27,7 @@ export class PdfService {
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
       pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-      pdf.save('generated.pdf');
+      pdf.save(`${hash}.pdf`);
     });
   }
 

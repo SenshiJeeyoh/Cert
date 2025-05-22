@@ -1,32 +1,36 @@
 .custom-modal {
-  width: 1000px;
-  height: 400px;
-  background: #1c1c1c; /* Optional: match your theme */
+  width: 90vw;             /* Responsive to viewport */
+  max-width: 1000px;       /* Still caps at 1000px */
+  height: auto;
+  background: #1c1c1c;
   border-radius: 12px;
-  overflow: auto;
   padding: 20px;
 }
 .certificate-template {
-  width: 1000px;
-  height: 700px;
+  width: 100%;
+  max-width: 1000px;
+  height: 707px;
   margin: 0 auto;
   padding: 40px;
-  border: 1px solid #ffa500; /* Gold border */
+  border: 1px solid #ffa500;
   background: linear-gradient(to bottom, #2c2c2c, #111);
   text-align: center;
   font-family: 'Georgia', serif;
   color: #f1f1f1;
   border-radius: 12px;
+  box-sizing: border-box;
 }
 
 .certificate-template h2 {
   font-size: 40px;
+  font-family: 'Alice', serif;
   margin-bottom: 50px;
   color: #FFD700;
 }
 
 .certificate-template h3 {
   font-size: 30px;
+  font-family: 'Dancing Script', cursive;
   margin: 30px 0;
   color: #ffa500;
 }

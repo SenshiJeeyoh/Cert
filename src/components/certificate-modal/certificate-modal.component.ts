@@ -18,7 +18,7 @@ constructor(@Inject(MAT_DIALOG_DATA) public data: any , private pdfService: PdfS
 
 
   async downloadPDF() {
-    this.pdfService.generatePDF();
+    this.pdfService.generatePDF(this.data.certHash);
     // if (!element) return;
 
     // const canvas = await html2canvas(element);

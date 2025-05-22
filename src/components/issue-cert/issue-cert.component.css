@@ -128,7 +128,6 @@ img.pdf {
 .container input:focus,
 .container select:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #f0a500;
 }
 
 .container button {
