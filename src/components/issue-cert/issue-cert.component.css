@@ -13,7 +13,7 @@
     border: 2px solid #f0a500;
     border-radius: 12px;
     padding: 40px;
-    box-shadow: 0 0 30px rgba(240, 165, 0, 0.2);
+    /* box-shadow: 0 0 30px  rgba(240, 165, 0, 0.2); */
     color: #f5f5f5;
     font-family: 'Georgia', serif;
     overflow: hidden;
@@ -96,9 +96,9 @@ img.pdf {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 50px auto;
-    padding: 30px;
+    padding: 80px;
     background: #1a1a1a; /* dark metallic tone */
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
@@ -111,10 +111,19 @@ img.pdf {
     margin-bottom: 30px;
     color: #f0a500; /* soft metallic gold for header */
 }
-
-.container input,
-.container select {
+select{
     width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 6px;
+    background: #2c2c2c;
+    color: #ffffff;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+.container input{
+    width: 97%;
     padding: 12px;
     margin-bottom: 20px;
     border: none;
@@ -145,4 +154,18 @@ img.pdf {
 
 .container button:hover {
     background-color: #ffb833;
+}
+
+.eventDescription-textarea{
+    resize: none;
+    height: 150px;
+    width: 97%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 6px;
+    background: #2c2c2c;
+    color: #ffffff;
+    font-size: 14px;
+    transition: 0.3s ease;
 }

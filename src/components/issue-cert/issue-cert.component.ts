@@ -13,6 +13,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 export class IssueCertComponent implements OnInit{
   name : string = '';
   event: string = '';
+  eventDescription: string = '';
   date: string = '';
   formattedDate: any;
   serial: string | any = '';
@@ -38,7 +39,7 @@ export class IssueCertComponent implements OnInit{
     const studentAddress = await this.blockchainService.getStudentAddressByName(this.selectedStudent);
     
     try{
-        await this.blockchainService.issueCertificate(this.name, this.event, this.date, studentAddress).then(serial => {
+        await this.blockchainService.issueCertificate(this.name, this.event, this.eventDescription, this.date, studentAddress).then(serial => {
           this.serial = serial;
           
           setTimeout(() => {

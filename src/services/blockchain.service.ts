@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {ethers} from 'ethers';
 import * as CryptoJS from 'crypto-js';
 
-const contractAddress = '0xe49c88454b8630fb8ba09cb30bc94a1d15f2402a';
+const contractAddress = '0x044Efd4032484213c236fdD31e4750EfE67ea520';
 const abi =  [
     {
       "inputs": [],
@@ -315,6 +315,11 @@ const abi =  [
         },
         {
           "internalType": "string",
+          "name": "_eventDescription",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
           "name": "_issuedDate",
           "type": "string"
         },
@@ -344,6 +349,11 @@ const abi =  [
       ],
       "name": "verifyCertificate",
       "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        },
         {
           "internalType": "string",
           "name": "",
@@ -406,6 +416,11 @@ const abi =  [
             },
             {
               "internalType": "string",
+              "name": "eventDescription",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
               "name": "issuedDate",
               "type": "string"
             },
@@ -449,6 +464,11 @@ const abi =  [
             {
               "internalType": "string",
               "name": "eventName",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "eventDescription",
               "type": "string"
             },
             {
@@ -500,8 +520,8 @@ export class BlockchainService {
   }
 
 
-  genSerial(name: string, event: string, date: string){
-    const serial = name + event + date;
+  genSerial(name: string, event: string, eventDescription: string, date: string){
+    const serial = name + event + eventDescription + date;
     return  CryptoJS.SHA256(serial).toString();  
   }
 
@@ -522,11 +542,11 @@ async isAdminExists(adminAddress: string) {
 }
 
 
-  async issueCertificate(name: string, event: string, date: string, studentAddress: string){
+  async issueCertificate(name: string, event: string, eventDescription: string, date: string, studentAddress: string){
     if (!this.contract) return;
-    const serial = this.genSerial(name, event, date);
+    const serial = this.genSerial(name, event, eventDescription, date);
     
-    const tx = await (this.contract as any).issueCertificate(name, event, date, serial, studentAddress);
+    const tx = await (this.contract as any).issueCertificate(name, event, eventDescription, date, serial, studentAddress);
     await tx.wait();
     return serial;
   }

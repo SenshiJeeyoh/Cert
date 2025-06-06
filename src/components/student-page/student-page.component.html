@@ -9,9 +9,13 @@
 
     <mat-list *ngIf="certs.length > 0; else noCerts">
       <mat-list-item class="cert-item" *ngFor="let cert of certs">
+        <div class="preview-cert">
+        <div class="verify-icon">
         <mat-icon matListIcon color="accent">verified</mat-icon>
         <span class="cert-text">{{ cert }}</span>
+        </div>
         <button class="modal-button" color="primary" (click)="openCertificateModal(cert)">Preview</button>
+        </div>
       </mat-list-item>
     </mat-list>
 

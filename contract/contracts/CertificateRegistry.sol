@@ -16,6 +16,7 @@ contract CertificateRegistry {
     struct Certificate {
         string recipientName;
         string eventName;
+        string eventDescription;
         string issuedDate;
         string certHash;
         bool isValid;
@@ -131,6 +132,7 @@ function updateAdmin(string memory _adminName) public  onlyAdmin{
     function issueCertificate(
         string memory _recipientName,
         string memory _eventName,
+        string memory _eventDescription,
         string memory _issuedDate,
         string memory _certHash,
         address _studentAddress
@@ -140,6 +142,7 @@ function updateAdmin(string memory _adminName) public  onlyAdmin{
         Certificate memory newCert = Certificate({
             recipientName: _recipientName,
             eventName: _eventName,
+            eventDescription: _eventDescription,
             issuedDate: _issuedDate,
             certHash: _certHash,
             isValid: true
@@ -154,11 +157,11 @@ function updateAdmin(string memory _adminName) public  onlyAdmin{
     function verifyCertificate(string memory _certHash)
         public
         view
-        returns (string memory, string memory, string memory, bool)
+        returns (string memory, string memory, string memory, string memory, bool)
     {
         Certificate memory cert = certificates[_certHash];
         require(cert.isValid, "Certificate is not valid or doesn't exist");
-        return (cert.recipientName, cert.eventName, cert.issuedDate, cert.isValid);
+        return (cert.recipientName, cert.eventName, cert.eventDescription, cert.issuedDate, cert.isValid);
     }
 
     function revokeCertificate(string memory _certHash) public onlyAdmin {

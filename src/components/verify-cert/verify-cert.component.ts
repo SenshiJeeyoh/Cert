@@ -17,6 +17,7 @@ export class VerifyCertComponent {
   certificate: {
     recipientName: string;
     eventName: string;
+    eventDescription: string;
     issuedDate: string;
     isValid: boolean;
   } | null = null;
@@ -40,8 +41,9 @@ export class VerifyCertComponent {
       this.certificate = {
         recipientName: result[0],
         eventName: result[1],
-        issuedDate: result[2],
-        isValid: result[3]
+        eventDescription: result[2],
+        issuedDate: result[3],
+        isValid: result[4]
       };
     } catch (error) {
       console.error('Error verifying certificate:', error);

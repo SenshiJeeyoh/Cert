@@ -5,6 +5,7 @@
   background: #1c1c1c;
   border-radius: 12px;
   padding: 20px;
+
 }
 .certificate-template {
   width: 100%;
@@ -21,18 +22,25 @@
   box-sizing: border-box;
 }
 
-.certificate-template h2 {
-  font-size: 40px;
-  font-family: 'Alice', serif;
-  margin-bottom: 50px;
-  color: #FFD700;
+.certificate-template h1 {
+    font-size: 48px;
+    color: #f0a500;
+    margin: 0;
+    letter-spacing: 4px;
+
 }
 
 .certificate-template h3 {
-  font-size: 30px;
-  font-family: 'Dancing Script', cursive;
-  margin: 30px 0;
-  color: #ffa500;
+    font-size: 24px;
+    color: #cccccc;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.certificate-template h2 {
+    font-size: 30px;
+    color: #cccccc;
+    margin-top: 30px;
 }
 
 .certificate-template h4 {
@@ -43,7 +51,7 @@
 
 .certificate-template p {
   font-size: 18px;
-  margin: 10px 0;
+  margin: 30px 0;
   color: #e0e0e0;
 }
 

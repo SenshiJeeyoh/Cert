@@ -35,6 +35,7 @@ export class StudentPageComponent implements OnInit {
       data: {
         recipientName: cert.recipientName,
         eventName: cert.eventName,
+        eventDescription: cert.eventDescription,
         issuedDate: cert.issuedDate,
         certHash: cert.certHash
       },

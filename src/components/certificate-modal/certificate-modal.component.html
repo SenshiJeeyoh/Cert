@@ -1,12 +1,14 @@
 <div class="custom-modal">
     <div id="pdf-content" class="certificate-template">
-        <h2 class="cert-title">Certificate of Participation</h2>
-        <p>This is to certify that</p>
-        <h3>{{ data.recipientName }}</h3>
-        <p>has participated in</p>
+        <h1 class="cert-title">CERTIFICATE</h1>
+        <h3 class="cert-subtitle">OF PARTICIPATION</h3>
+        <p>This certificate is proudly presented to:</p>
+        <h2>{{ data.recipientName }}</h2>
+        <p>for participating in the event:</p>
         <h4>{{ data.eventName }}</h4>
+        <p>{{ data.eventDescription }}</p>
         <p>Date: {{ data.issuedDate }}</p>
-        <p><strong>Hash:</strong> {{ data.certHash }}</p>
+        <p><strong>Serial:</strong> {{ data.certHash }}</p>
     </div>
     <div class="modal-actions">
         <button class="download-btn" mat-raised-button color="primary" (click)="downloadPDF()">Download PDF</button>
